@@ -127,6 +127,11 @@ public class SdlService extends Service {
             public void onError(String info, Exception e) {
 
             }
+            
+            @Override
+            public LifecycleConfigurationUpdate managerShouldUpdateLifecycle(Language language) {
+                return null;
+            }
         };
 
         SdlArtwork appIcon = new SdlArtwork(ICON_FILENAME, FileType.GRAPHIC_PNG, R.mipmap.ic_launcher, true);
