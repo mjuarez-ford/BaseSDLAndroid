@@ -29,8 +29,8 @@ public class SdlService extends Service {
 
     private static final String APP_ID = "8678309";
     private static final String APP_NAME = "Base SDL";
-    private static final String ICON_FILENAME = "hello_sdl_icon.png";
-    private static final String SDL_IMAGE_FILENAME = "sdl_full_image.png";
+    private static final String ICON_FILENAME = "sdl.png";
+    private static final String SDL_IMAGE_FILENAME = "sdl.png";
     private static final int FOREGROUND_SERVICE_ID = 111;
     private SdlManager sdlManager = null;
     private NotificationChannel channel = null;
