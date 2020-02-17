@@ -9,6 +9,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SdlReceiver.queryForConnectedService(this);
+        //Multitransport
+        //SdlReceiver.queryForConnectedService(this);
+
+        //TCP
+        Intent proxyIntent = new Intent(this, SdlService.class);
+        startService(proxyIntent);
     }
 }
