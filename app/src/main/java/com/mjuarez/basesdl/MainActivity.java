@@ -1,5 +1,6 @@
 package com.mjuarez.basesdl;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,10 +11,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Multitransport
-        //SdlReceiver.queryForConnectedService(this);
+        SdlReceiver.queryForConnectedService(this);
 
         //TCP
-        Intent proxyIntent = new Intent(this, SdlService.class);
-        startService(proxyIntent);
+        //Intent proxyIntent = new Intent(this, SdlService.class);
+        //startService(proxyIntent);
     }
 }
