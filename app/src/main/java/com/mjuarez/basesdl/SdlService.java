@@ -22,10 +22,14 @@ import com.smartdevicelink.proxy.rpc.enums.FileType;
 import com.smartdevicelink.proxy.rpc.enums.HMILevel;
 import com.smartdevicelink.proxy.rpc.enums.Language;
 import com.smartdevicelink.proxy.rpc.listeners.OnRPCNotificationListener;
+import com.smartdevicelink.transport.BaseTransportConfig;
 import com.smartdevicelink.transport.MultiplexTransportConfig;
+import com.smartdevicelink.transport.TCPTransportConfig;
 import com.smartdevicelink.util.DebugTool;
 
 import java.util.Vector;
+
+import static com.smartdevicelink.protocol.enums.ControlFrameTags.RPC.TransportEventUpdate.TCP_PORT;
 
 public class SdlService extends Service {
 
@@ -93,7 +97,7 @@ public class SdlService extends Service {
     private void startProxy() {
         DebugTool.enableDebugTool();
         MultiplexTransportConfig transport = new MultiplexTransportConfig(this, APP_ID, MultiplexTransportConfig.FLAG_MULTI_SECURITY_OFF);
-        //transport = new TCPTransportConfig(TCP_PORT, DEV_MACHINE_IP_ADDRESS, true); //TCP
+        //BaseTransportConfig transport = new TCPTransportConfig(12345, "10.0.2.2", true); //TCP
         Vector<AppHMIType> appType = new Vector<>();
         appType.add(AppHMIType.DEFAULT);
         SdlManagerListener listener = new SdlManagerListener() {
@@ -136,7 +140,7 @@ public class SdlService extends Service {
             }
         };
 
-        SdlArtwork appIcon = new SdlArtwork(ICON_FILENAME, FileType.GRAPHIC_PNG, R.mipmap.ic_launcher, true);
+        SdlArtwork appIcon = new SdlArtwork(ICON_FILENAME, FileType.GRAPHIC_PNG, R.drawable.sdl, true);
 
         // The manager builder sets options for your session
         SdlManager.Builder builder = new SdlManager.Builder(this, APP_ID, APP_NAME, listener);
